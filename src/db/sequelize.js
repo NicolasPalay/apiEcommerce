@@ -50,13 +50,15 @@ const initDb = () => {
     .then(_ => {
         console.log('la base est synchro')        
         produits.map(produit =>{
-            Produit.create({
-                name:produit.name,
-                content: produit.content,
-                hp:produit.hp,
-                picture: produit.picture,
-                types: produit.types
-            })
+            if(!produit){
+                Produit.create({
+                    name:produit.name,
+                    content: produit.content,
+                    hp:produit.hp,
+                    picture: produit.picture,
+                    types: produit.types
+                })
+            }
         })
         bcrypt.hash('pikachu',10)
             .then(hash => { User.create({username:'pikachu',password:hash})
