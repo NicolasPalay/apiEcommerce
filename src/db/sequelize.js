@@ -46,7 +46,7 @@ const Produit = ProduitModel(sequelize, DataTypes)
 const User = UserModel(sequelize, DataTypes)
 
 const initDb = () => {
-    return sequelize.sync({force:true})
+    return sequelize.sync()
     .then(_ => {
         console.log('la base est synchro')        
         produits.map(produit =>{
