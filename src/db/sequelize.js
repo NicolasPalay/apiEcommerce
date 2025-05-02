@@ -61,7 +61,10 @@ const initDb = () => {
             }
         })
         bcrypt.hash('pikachu',10)
-            .then(hash => { User.create({username:'pikachu',password:hash})
+            .then(hash => { 
+                if(!User){
+                    User.create({username:'pikachu',password:hash})
+                }
             })
         
     })
