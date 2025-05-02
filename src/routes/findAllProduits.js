@@ -11,7 +11,7 @@ module.exports = (app) => {
                 const message = 'le terme de recherche doit contenir au moins 2 caractères.'
                 return res.status(400).json({message})
             }
-            return Produit.findCountAll({
+            return Produit.findAndCountAll({
                 where:{
                     name:{
                         [Op.like]: `%${name}%`
